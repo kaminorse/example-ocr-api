@@ -19,7 +19,7 @@ export default async function handler(
         const worker = TesseractConfig.getWorker();
         if (worker) {
           const result = await worker.recognize(req.body.payload.image);
-          result.data.words
+          await TesseractConfig.terminate();
           res.status(200).json({
             status: 200,
             payload: {
