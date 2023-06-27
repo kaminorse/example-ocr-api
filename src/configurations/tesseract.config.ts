@@ -7,7 +7,9 @@ async function initialize(): Promise<void> {
     worker = await createWorker({
       logger: m => console.log(m)
     });
+    await worker.loadLanguage('eng');
     await worker.loadLanguage('jpn');
+    await worker.initialize('eng');
     await worker.initialize('jpn');
   }  
 }
